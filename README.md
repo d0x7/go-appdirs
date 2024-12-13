@@ -1,6 +1,6 @@
-# go-appdir
+# go-appdirs
 
-[![GoDoc](https://godoc.org/github.com/emersion/go-appdir?status.svg)](https://godoc.org/github.com/emersion/go-appdir)
+[![GoDoc](https://godoc.org/github.com/emersion/go-appdir?status.svg)](https://godoc.org/xiam.li/appdirs)
 
 Go package to get application directories such as config and cache.
 
@@ -25,7 +25,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/emersion/go-appdir"
+	"xiam.li/appdirs"
 )
 
 func main() {
