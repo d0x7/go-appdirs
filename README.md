@@ -4,17 +4,21 @@
 
 Go package to get application directories such as config and cache.
 
-Platform | Windows | [Linux/BSDs] | [macOS]
--------- | ------- | ------------------------------------------------------------------------------------------ | -----
-User-specific config | `%APPDATA%` (`C:\Users\%USERNAME%\AppData\Roaming`) | `$XDG_CONFIG_HOME` (`$HOME/.config`) | `$HOME/Library/Application Support`
-User-specific cache | `%LOCALAPPDATA%` (`C:\Users\%USERNAME%\AppData\Local`) | `$XDG_CACHE_HOME` (`$HOME/.cache`) | `$HOME/Library/Caches`
-User-specific data | `%LOCALAPPDATA%` (`C:\Users\%USERNAME%\AppData\Local`) | `$XDG_DATA_HOME` (`$HOME/.local/share`) | `$HOME/Library/Application Support`
-User-specific logs | `%LOCALAPPDATA%` (`C:\Users\%USERNAME%\AppData\Local`) | `$XDG_CACHE_HOME/<name>/logs` | `$HOME/Library/Logs`
+| Platform             | [Linux/BSDs]                             | [macOS]                             | Windows     |
+|----------------------|------------------------------------------|-------------------------------------|:------------|
+| User-specific data   | `$XDG_DATA_HOME` OR `$HOME/.local/share` | `$HOME/Library/Application Support` | Unsupported |
+| User-specific config | `$XDG_CONFIG_HOME` OR `$HOME/.config`    | `$HOME/Library/Application Support` | Unsupported |
+| User-specific cache  | `$XDG_CACHE_HOME` OR `$HOME/.cache`      | `$HOME/Library/Caches`              | Unsupported |
+| User-specific logs   | `$XDG_CACHE_HOME` OR `$HOME/.cache`      | `$HOME/Library/Logs`                | Unsupported |
+| Shared data          | `$XDG_DATA_DIRS` OR `/usr/local/share`   | `/Library/Application Support`      | Unsupported |
+| Shared config        | `$XDG_CONFIG_DIRS` OR `/etc/xdg`         | `/Library/Application Support`      | Unsupported |
+| Shared cache         | `/tmp/$(APP)-cache`                      | `/Library/Caches`                   | Unsupported |
+| Shared logs          | `$(SHARED_DATA)/logs`                    | `/Library/Logs`                     | Unsupported |
 
 [Linux/BSDs]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 [macOS]: https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html#//apple_ref/doc/uid/TP40010672-CH2-SW1
 
-Inspired by [`configdir`](https://github.com/shibukawa/configdir).
+Forked from [emersion](https://github.com/emersion/go-appdir), which got forked from [ProtonMail](https://github.com/ProtonMail/go-appdir)'s implemention, which was inspired by [configdir](https://github.com/shibukawa/configdir).
 
 ## Usage
 
